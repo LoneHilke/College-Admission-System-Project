@@ -1,5 +1,13 @@
+{% extends 'basic.html' %}
+
+{% block title %} Registeration Page {% endblock %}
+{% block register %} active {% endblock %}
+
+{% block css %}
+{% endblock %}
+{% block body %}
 <form action="/register/" method="POST"> {% csrf_token %}
-    <div class="container mt-5">
+    <div class="container mt-3">
         <div class="mb-3">
             <label for="username" class="form-label">Username</label>
             <input type="text" class="form-control" id="username" name="username">
@@ -27,3 +35,4 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
+{% endblock %}

@@ -1,3 +1,9 @@
+{% extends 'admin.html' %}
+
+{% block title %} {{application.name}} {% endblock %}
+{% block css %}
+{% endblock %}
+{% block body %}
 <div class="container mt-4">
     <div class="row">
         <h1 style="text-align: center;">Personal Details</h1>
@@ -5,7 +11,7 @@
         <div class="col-md-4">
             <div class="profile-img">
                 {% if user.application.student_profile.url %}
-                <img src="{{user.application.student_profile.url}}" alt="" width="310px" height="270px">
+                <img src="{{application.student_profile.url}}" alt="" width="310px" height="270px">
                 {% endif %}
             </div>
         </div>
@@ -18,7 +24,7 @@
                             <label>Course :</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.application.course}}</p>
+                            <p>{{application.course}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -26,7 +32,7 @@
                             <label>Full Name :</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.application.name}}</p>
+                            <p>{{application.name}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -34,7 +40,7 @@
                             <label>Email ID :</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.email}}</p>
+                            <p>{{application.email}}</p>
                         </div>
                     </div>
                     {% if user.application.phone_no %}
@@ -43,7 +49,7 @@
                             <label>Phone Number :</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.application.phone_no}}</p>
+                            <p>{{application.phone_no}}</p>
                         </div>
                     </div>
                     {% endif %}
@@ -52,7 +58,7 @@
                             <label>Address :</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.application.address}}</p>
+                            <p>{{application.address}}</p>
                         </div>
                     </div>
                 </div>
@@ -78,7 +84,7 @@
                             <label>SSC Percentage :</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.application.ssc_percentage}}%</p>
+                            <p>{{application.ssc_percentage}}%</p>
                         </div>
                     </div>
                     <div class="row">
@@ -86,7 +92,7 @@
                             <label>SSC Marksheet :</label>
                         </div>
                         <div class="col-md-6">
-                            <p><a href="{{user.application.ssc_marksheet.url}}">View SSC Marksheet</a></p>
+                            <p><a href="{{application.ssc_marksheet.url}}">View SSC Marksheet</a></p>
                         </div>
                     </div>
                     <div class="row">
@@ -94,7 +100,7 @@
                             <label>SSC Passing Certificate :</label>
                         </div>
                         <div class="col-md-6">
-                            <p><a href="{{user.application.ssc_passing_certificate.url}}"> View SSC Passing Certificate</a></p>
+                            <p><a href="{{application.ssc_passing_certificate.url}}"> View SSC Passing Certificate</a></p>
                         </div>
                     </div>
                     {% if user.application.phone_no %}
@@ -103,7 +109,7 @@
                             <label>SSC Leaving Certificate :</label>
                         </div>
                         <div class="col-md-6">
-                            <p><a href="{{user.application.ssc_leaving_certificate.url}}">View SSC Leaving Certificate</a></p>
+                            <p><a href="{{application.ssc_leaving_certificate.url}}">View SSC Leaving Certificate</a></p>
                         </div>
                     </div>
                     {% endif %}
@@ -112,7 +118,7 @@
         </div>
 </div>
 <hr>
- 
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-4">
@@ -129,7 +135,7 @@
                             <label>HSC Percentage :</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.application.hsc_percentage}}%</p>
+                            <p>{{application.hsc_percentage}}%</p>
                         </div>
                     </div>
                     <div class="row">
@@ -137,7 +143,7 @@
                             <label>HSC Marksheet :</label>
                         </div>
                         <div class="col-md-6">
-                            <p><a href="{{user.application.hsc_marksheet.url}}">View HSC Marksheet</a></p>
+                            <p><a href="{{application.hsc_marksheet.url}}">View HSC Marksheet</a></p>
                         </div>
                     </div>
                     <div class="row">
@@ -145,7 +151,7 @@
                             <label>HSC Passing Certificate :</label>
                         </div>
                         <div class="col-md-6">
-                            <p><a href="{{user.application.hsc_passing_certificate.url}}">View HSC Marksheet</a></p>
+                            <p><a href="{{application.hsc_passing_certificate.url}}">View HSC Marksheet</a></p>
                         </div>
                     </div>
                     {% if user.application.phone_no %}
@@ -154,7 +160,7 @@
                             <label>HSC Leaving Certificate :</label>
                         </div>
                         <div class="col-md-6">
-                            <p><a href="{{user.application.hsc_leaving_certificate.url}}">View HSC Leaving Certificate</a></p>
+                            <p><a href="{{application.hsc_leaving_certificate.url}}">View HSC Leaving Certificate</a></p>
                         </div>
                     </div>
                     {% endif %}
@@ -163,7 +169,7 @@
         </div>
 </div>
 <hr>
- 
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-4">
@@ -180,7 +186,7 @@
                             <label>CET Percentile :</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.application.cet_percentile}}</p>
+                            <p>{{application.cet_percentile}}</p>
                         </div>
                     </div>
                     <div class="row">
@@ -188,7 +194,7 @@
                             <label>CET Scorecard :</label>
                         </div>
                         <div class="col-md-6">
-                            <p><a href="{{user.application.cet_scorecard.url}}">View CET Scorecard</a></p>
+                            <p><a href="{{application.cet_scorecard.url}}">View CET Scorecard</a></p>
                         </div>
                     </div>
                     <div class="row">
@@ -196,7 +202,7 @@
                             <label>JEE Percentile :</label>
                         </div>
                         <div class="col-md-6">
-                            <p>{{user.application.jee_percentile}}</p>
+                            <p>{{application.jee_percentile}}</p>
                         </div>
                     </div>
                     {% if user.application.phone_no %}
@@ -205,7 +211,7 @@
                             <label>JEE Scorecard :</label>
                         </div>
                         <div class="col-md-6">
-                            <p><a href="{{user.application.jee_scorecard.url}}">View JEE Scorecard</a></p>
+                            <p><a href="{{application.jee_scorecard.url}}">View JEE Scorecard</a></p>
                         </div>
                     </div>
                     {% endif %}
@@ -215,3 +221,4 @@
 </div>
 <hr>
 <h4>Click here to edit the status</h4><a href="/application_status/{{application.id}}/" class="btn btn-secondary" style="width: 20rem;">Edit Status</a>
+{% endblock %}

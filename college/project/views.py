@@ -7,7 +7,6 @@ from django.contrib.auth  import authenticate,  login, logout
 from django.contrib.auth.decorators import login_required
 from django.views.generic import UpdateView
 
-# Create your views here.
 def college(request):
     notice = Notice.objects.all()
     return render(request, "college.html", {'notice':notice})
@@ -18,6 +17,8 @@ def notice(request, myid):
     return render(request, "notice.html", {'details':details})
 
 def application_form(request):
+    if not request.user.is_authenticated:
+        return redirect("/login")
     hide = Application.objects.filter(user=request.user)
     if request.method=="POST":
         form = ApplicationForm(request.POST, request.FILES)
@@ -55,23 +56,26 @@ def status(request):
 
 
 def register(request):
-    if request.method=="POST":   
-        username = request.POST['username']
-        email = request.POST['email']
-        first_name=request.POST['first_name']
-        last_name=request.POST['last_name']
-        password1 = request.POST['password1']
-        password2 = request.POST['password2']
+    if request.user.is_authenticated:
+        return redirect("/")
+    else:
+        if request.method=="POST":   
+            username = request.POST['username']
+            email = request.POST['email']
+            first_name=request.POST['first_name']
+            last_name=request.POST['last_name']
+            password1 = request.POST['password1']
+            password2 = request.POST['password2']
         
-        if password1 != password2:
-            messages.error(request, "Passwords do not match.")
-            return redirect('/register')
-        
-        user = User.objects.create_user(username, email, password1)
-        user.first_name = first_name
-        user.last_name = last_name
-        user.save()
-        return render(request, 'login.html')   
+            if password1 != password2:
+                messages.error(request, "Passwords do not match.")
+                return redirect('/register')
+            
+            user = User.objects.create_user(username, email, password1)
+            user.first_name = first_name
+            user.last_name = last_name
+            user.save()
+            return render(request, 'login.html')   
     return render(request, "register.html")
 
 def loggedin(request):

@@ -1,3 +1,26 @@
+{% extends 'admin.html' %}
+
+{% block title %} Admin Panel {% endblock %}
+{% block admin %} active {% endblock %}
+
+{% block css %}
+    <style>
+      .box{
+          width: 500px;
+          height: 150px;
+          margin: 20px 40px;
+          background-color: aliceblue;
+          border: 1px solid black;
+          box-shadow: 1px 1px;
+          display: inline-block;
+      }
+      h2{
+          text-align: center;
+      }
+    </style>
+    {% endblock %}
+{% block body %}
+
 <div class="box">
     <h2><a href="/users/"> All Users ({{users}}) </a></h2>
 </div>
@@ -10,3 +33,7 @@
 <div class="box">
   <h2><a href="/rejected_applications/"> Rejected Applications ({{reject}}) </a></h2>
 </div>
+
+  {% endblock %}
+{% block js %}
+{% endblock %}

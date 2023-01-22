@@ -1,4 +1,20 @@
-<div class="container mt-4">
+{% extends 'basic.html' %}
+
+{% block title %} Admission System {% endblock %}
+{% block home %} active {% endblock %}
+
+{% block css %}
+{% endblock %}
+{% block body %}
+{% if request.user.is_authenticated %}
+
+{% else %}
+<div class="container mt-3">
+  <div class="alert alert-danger" role="alert">
+    <h5>Login to fill the application form</h5>
+  </div>
+</div>
+{% endif %}<div class="container mt-4">
     <h1>Important Notice</h1>
 <div class="row mt-4">
   {% for i in notice %}
@@ -13,3 +29,4 @@
     {% endfor %}
   </div>
   </div>
+{% endblock %}
